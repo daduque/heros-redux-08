@@ -1,0 +1,12 @@
+import React from 'react'
+import { Navigate } from 'react-router-dom';
+
+const PublicRouter = ({ children, isLogged }) => {
+    const lastPath = localStorage.getItem('lastPath') || '/marvel';
+
+    return !isLogged
+        ? children
+        : <Navigate to={ lastPath } />
+}
+
+export default PublicRouter
